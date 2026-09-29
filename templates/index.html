@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>AI Study Planner</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+
+        <div>
+            <h1>StudyAI</h1>
+            <p>AI-Powered Personalized Study Planner</p>
+        </div>
+
+    </header>
+
+
+    <section class="hero">
+
+        <h2>Plan smarter. Study better.</h2>
+
+        <p>
+            Let AI analyze your exams, preparation level and
+            available time to create your personalized study plan.
+        </p>
+
+    </section>
+
+
+    <section class="card">
+
+        <h2>📚 Your Study Details</h2>
+
+        <label>
+            Available study hours per day
+        </label>
+
+        <input
+            type="number"
+            id="studyHours"
+            min="1"
+            max="24"
+            value="4"
+        >
+
+
+        <h3>Subjects</h3>
+
+        <div id="subjects"></div>
+
+
+        <button
+            class="secondary"
+            onclick="addSubject()">
+
+            + Add Subject
+
+        </button>
+
+
+        <button
+            class="generate"
+            onclick="generatePlan()">
+
+            ✨ Generate AI Study Plan
+
+        </button>
+
+    </section>
+
+
+    <section
+        id="loading"
+        class="loading hidden">
+
+        <div class="loader"></div>
+
+        <p>
+            AI is analyzing your workload...
+        </p>
+
+    </section>
+
+
+    <section
+        id="result"
+        class="card hidden">
+
+        <h2>🤖 Your AI Study Plan</h2>
+
+        <p class="subtitle">
+            The plan is based on exam urgency,
+            difficulty and your preparation level.
+        </p>
+
+        <div id="plan"></div>
+
+    </section>
+
+
+</div>
+
+
+<script src="{{ url_for('static',
+                        filename='script.js') }}">
+</script>
+
+</body>
+
+</html>
